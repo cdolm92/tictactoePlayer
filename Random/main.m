@@ -54,10 +54,6 @@ int main(int argc, const char * argv[]) {
         
         
         
-        
-        
-        
-        
         //Random Toss H OR T
         
         
@@ -68,7 +64,7 @@ int main(int argc, const char * argv[]) {
         
         if ([headsOrTails isEqualToString:[toss firstObject]]) {
             printf("\nYou chose heads\n\n");
-        } else {
+        } else if ([headsOrTails isEqualToString:[toss lastObject]]) {
             printf("\nYou chose tails\n\n");
         }
 
