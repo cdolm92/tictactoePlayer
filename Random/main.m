@@ -11,51 +11,72 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
       
+        
+        
+        NSArray *toss = @[@"h",@"t"];
+        
+//        NSLog(@"\nType:\n\nh.Heads\n\nt.Tails\n");
+//        
+//        scanf("%s:", &headsTails);
+//
+//        NSString *playerSelection = [NSString stringWithFormat:@"%s", &headsTails];
+        
         char headsTails;
-        
-        NSLog(@"\nType:\n\nh.Heads\n\nt.Tails\n");
-        
-        scanf("%s:", &headsTails);
+        while (headsTails != 'h' && headsTails != 't') {
+            printf("\nChoose heads or tails: ");
+            scanf("%c", &headsTails);
+            fpurge(stdin);
+            
+            if (headsTails != 'h' && headsTails != 't') {
+            printf("Invalid. Select 'h' for heads or 't' for tails!\n");
+            }
 
-        NSString *playerSelection = [NSString stringWithFormat:@"%s", &headsTails];
-        
-        if([playerSelection isEqualToString: @"h"]) {
-            NSLog(@"\nYou selected heads");
-        } else if ([playerSelection isEqualToString: @"t"]){
-            NSLog(@"\nYou selected tails");
+//            NSString *playerSelection = [NSString stringWithFormat:@"%s", &headsTails];
+//            if ([playerSelection isEqualTo: [toss firstObject]]) {
+//                NSLog(@"\nYou selected heads");
+//                break;
+//            }
+//            else if ([playerSelection isEqualTo: [toss lastObject]]) {
+//                NSLog(@"\nYou selected tails");
+//                break;
+//            }
+//            NSLog(@"Invalid. Select 'h' for heads or 't' for tails!\n");
         }
         
-        while ([playerSelection isNotEqualTo: @"h"]) {
-            NSLog(@"Invalid. Select 'h' or 't'");
-        }
+//        if([playerSelection isEqualToString: @"h"]) {
+//            NSLog(@"\nYou selected heads");
+//        } else if ([playerSelection isEqualToString: @"t"]){
+//            NSLog(@"\nYou selected tails");
+//        }
+
+        
+        NSString *playerSelection = [NSString stringWithFormat:@"%c", headsTails];
         
         
         
         
         
-        
-       
         
         
         //Random Toss H OR T
         
-        NSArray *toss = @[@"h",@"t"];
+        
         
         NSUInteger randomNumber = arc4random_uniform((int)[toss count]);
         
         NSString *headsOrTails = [toss objectAtIndex:randomNumber];
         
         if ([headsOrTails isEqualToString:[toss firstObject]]) {
-            printf("\nYou got heads\n\n");
+            printf("\nYou chose heads\n\n");
         } else {
-            printf("\nYou got tails\n\n");
+            printf("\nYou chose tails\n\n");
         }
 
         
         
         
         
-        //Player check
+//        Player check
         
         if([headsOrTails isEqualToString: playerSelection]) {
             printf("Nice! you are Player 1\n\n");
@@ -63,10 +84,10 @@ int main(int argc, const char * argv[]) {
             printf("Bummer, you are Player 2\n\n");
         }
         
-        
-        
-        //RESULTS
-        
+//
+//        
+//        //RESULTS
+//        
         NSLog(@"PLAYER INPUT: %@", playerSelection);
 
         NSLog(@"RANDOM TOSS: %@", headsOrTails);
