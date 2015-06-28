@@ -11,32 +11,65 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
       
-        char playerSelection;
+        char headsTails;
         
-        printf("Type:\n\nh.Heads\n\nt.Tails\n");
+        NSLog(@"\nType:\n\nh.Heads\n\nt.Tails\n");
         
-        scanf("%c:", &playerSelection);
+        scanf("%s:", &headsTails);
+
+        NSString *playerSelection = [NSString stringWithFormat:@"%s", &headsTails];
         
-        printf("You selected %c\n", playerSelection);
-        
-        if ((playerSelection != 'h') && (playerSelection != 't')) {
-            printf("Your selection is invalid. Please try again.\n");
+        if([playerSelection isEqualToString: @"h"]) {
+            NSLog(@"\nYou selected heads");
+        } else if ([playerSelection isEqualToString: @"t"]){
+            NSLog(@"\nYou selected tails");
         }
         
-        NSString *headsOrTails = @"ht";
+        while ([playerSelection isNotEqualTo: @"h"]) {
+            NSLog(@"Invalid. Select 'h' or 't'");
+        }
         
-        NSString *toss = [headsOrTails substringWithRange:NSMakeRange(arc4random_uniform([headsOrTails length]), 1)];
         
         
-        if(toss != playerSelection) {
+        
+        
+        
+       
+        
+        
+        //Random Toss H OR T
+        
+        NSArray *toss = @[@"h",@"t"];
+        
+        NSUInteger randomNumber = arc4random_uniform((int)[toss count]);
+        
+        NSString *headsOrTails = [toss objectAtIndex:randomNumber];
+        
+        if ([headsOrTails isEqualToString:[toss firstObject]]) {
+            printf("\nYou got heads\n\n");
+        } else {
+            printf("\nYou got tails\n\n");
+        }
 
-            printf("You are the Player 1\n");
-           }  else {
-            printf("You are Player 2\n");
-           }
         
-        NSLog(@"%@",toss);
         
+        
+        
+        //Player check
+        
+        if([headsOrTails isEqualToString: playerSelection]) {
+            printf("Nice! you are Player 1\n\n");
+        } else {
+            printf("Bummer, you are Player 2\n\n");
+        }
+        
+        
+        
+        //RESULTS
+        
+        NSLog(@"PLAYER INPUT: %@", playerSelection);
+
+        NSLog(@"RANDOM TOSS: %@", headsOrTails);
         
         
         
