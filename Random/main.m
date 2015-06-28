@@ -23,11 +23,14 @@ int main(int argc, const char * argv[]) {
         
         char headsTails;
         while (headsTails != 'h' && headsTails != 't') {
-            printf("\nChoose heads or tails: ");
+            printf("\nChoose heads(h) or tails(t): ");
             scanf("%c", &headsTails);
             fpurge(stdin);
-            
-            if (headsTails != 'h' && headsTails != 't') {
+            if(headsTails == 'h') {
+            printf("You chose Heads");
+            } else if (headsTails == 't'){
+            printf("You chose Tails");
+            } else if (headsTails != 'h' && headsTails != 't') {
             printf("Invalid. Select 'h' for heads or 't' for tails!\n");
             }
 
@@ -63,9 +66,9 @@ int main(int argc, const char * argv[]) {
         NSString *headsOrTails = [toss objectAtIndex:randomNumber];
         
         if ([headsOrTails isEqualToString:[toss firstObject]]) {
-            printf("\nYou chose heads\n\n");
+            printf("\nCoin is on Heads\n\n");
         } else if ([headsOrTails isEqualToString:[toss lastObject]]) {
-            printf("\nYou chose tails\n\n");
+            printf("\nCoin is on Tails\n\n");
         }
 
         
